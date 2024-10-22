@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>PDFMaker</title>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <h3>Create your PDF here</h3>
+    <div id="input-field">
+        <label for="text">Upload your text file here(.txt):</label>
+        <input type="file" name="text" id="text" accept=".txt">
+    </div>
+    <div class="textarea">
+        <textarea name="" id="text-area" rows="10" cols="50" placeholder=".....ggdsgdvshgsg"></textarea>
+    </div>
+    <button type="button" id="btn"> Get PDF</button>
+</body>
+</html>
