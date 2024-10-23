@@ -1,0 +1,17 @@
+const doc = new jsPDF();
+const text = "This is a long piece of text that needs to be wrapped within specific boundaries in the PDF document.";
+
+// Coordinates for the text starting point
+const x = 10;
+const y = 20;
+
+// Define the width within which the text should be wrapped (end point for x)
+const maxWidth = 90;  // The width from x = 10 to x = 100
+
+// Split the text into multiple lines to fit within the specified width
+const wrappedText = doc.splitTextToSize(text, maxWidth);
+
+// Draw the text at the specified x and y coordinates, wrapped within the maxWidth
+doc.text(wrappedText, x, y);
+
+doc.save("wrappedText.pdf");
