@@ -27,6 +27,7 @@ const createPdf=()=>{
 }
 
 input.addEventListener("change",(e)=>{
+    textArea.value = ""; //empty textarea
     const uploadedFile = e.target.files[0];
     const reader = new FileReader(); //create instance
     reader.onload = function(e) {

@@ -15,3 +15,33 @@ const wrappedText = doc.splitTextToSize(text, maxWidth);
 doc.text(wrappedText, x, y);
 
 doc.save("wrappedText.pdf");
+
+const doc = new jsPDF();
+const text = "Your long text that might span multiple pages...";
+
+// Coordinates for the text starting point
+let x = 10;
+let y = 20;
+
+// Define the width within which the text should be wrapped
+const maxWidth = 180;  // Set the width as per your requirement (total page width - margins)
+const maxHeight = 280; // Approximate height limit before you need to add a new page
+const lineHeight = 10; // Set line height based on the font size (e.g., 10 for normal size)
+
+// Split the text into multiple lines to fit within the specified width
+const wrappedText = doc.splitTextToSize(text, maxWidth);
+
+// Loop through the lines and handle page breaks
+wrappedText.forEach(line => {   //line of text
+    // If the current position exceeds the maxHeight, add a new page
+    if (y + lineHeight > maxHeight) {
+        doc.addPage(); // Add a new page
+        y = 20; // Reset the Y coordinate for the new page
+    }
+
+    doc.text(line, x, y); // Print the line at the specified coordinates
+    y += lineHeight; // Move the Y coordinate down for the next line
+});
+
+// Save the PDF
+doc.save("wrappedText.pdf");
